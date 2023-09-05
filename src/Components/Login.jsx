@@ -1,7 +1,15 @@
 import React from 'react'
 import axios from 'axios'
+import {  useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+
+
+   const history = useNavigate()
+
+
+    
 
 
      const Submit = (e) =>{
@@ -32,7 +40,8 @@ const Login = () => {
         .then(resp =>{
             console.log(resp.data)
             const  token = resp.data.token
-            localStorage.setItem('token', token)    
+            localStorage.setItem('token', token)   
+            history('/lista')
         })
         
 
@@ -43,6 +52,7 @@ const Login = () => {
 
   return (
     <div>
+       
         <h1>Bienvenido </h1>
         <form onSubmit={Submit}>
             <label ><p>Email</p>
