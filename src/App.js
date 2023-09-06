@@ -8,6 +8,10 @@ import {Routes, Route} from 'react-router-dom'
 import Protected from './Components/Protected';
 import { useLocalStorage } from 'react-use';
 
+
+import Pelicula from './Components/Pelicula';
+import Series from './Components/Series';
+
 function App() {
 
 
@@ -21,8 +25,8 @@ function App() {
           <Route exact path='/' element={<Login/> }/>
           <Route element={<Protected active={token} redirectPath='/'/>}>
             <Route path='/lista' element={<Lista/>}/>
-            <Route path='/peliculas' element={<Lista/>}/>
-            <Route path='/series' element={<Lista/>}/>
+            <Route path='/peliculas' element={<Pelicula/>}/>
+            <Route path='/series' element={<Series/>}/>
             <Route path='/favoritos' element={<Lista/>}/>
          
 

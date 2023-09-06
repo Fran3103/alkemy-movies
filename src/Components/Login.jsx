@@ -38,7 +38,7 @@ const Login = () => {
     axios
         .post('http://challenge-react.alkemy.org', {email, password})
         .then(resp =>{
-            console.log(resp.data)
+          
             const  token = resp.data.token
             localStorage.setItem('token', token)   
             history('/lista')

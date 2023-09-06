@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 
+const Pelicula = () => {
 
-const Lista = () => {
-
-    
-   const history = useNavigate()
-
-    let token = localStorage.getItem('token')
     const[movies, setMovies]= useState([])
     
     
@@ -37,7 +31,7 @@ const Lista = () => {
 
   return (
     <>
-    {!token  && history('/')}
+
         <div>
 
           {
@@ -59,4 +53,5 @@ const Lista = () => {
   )
 }
 
-export default Lista
+
+export default Pelicula
