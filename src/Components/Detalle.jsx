@@ -38,23 +38,27 @@ const Detalle = () => {
   
   return (
     <>
-      
-      <div>
-        {/* mapeo los datos */}
-      <h1>{detalle.title }</h1>
-      <img src={`https://image.tmdb.org/t/p/w500/${detalle.poster_path}`} alt={detalle.title} />
-      <h4>{detalle.overview}</h4>
-      <a href={detalle.homepage} target='blank'>homepage</a>
-      <h5>{detalle.tagline}</h5>
-      <p>{detalle.release_date}</p>
+    
+      <div className='  flex gap-9 m-auto max-w-6xl pt-4 h-full ' >
+        {/* reemplazo los datos los datos */}
+      <img src={`https://image.tmdb.org/t/p/w500/${detalle.poster_path}`} alt={detalle.title} className='mt-6 h-100'/>
+     <div className='flex flex-col w-full relative'>
+          <h1 className='text-5xl'><span className='text-lg'>Titulo</span> <br />{detalle.title }</h1>
+          <h5 className='mt-3'>{detalle.tagline}</h5>
+          <span className='text-lg  mt-7'>Resumen: </span> 
+          <h4 className='text-2xl mt-3 mb-9 ml-0 '>  {detalle.overview}</h4>
+         <div className='mt-24 absolute bottom-0'>
+          <a href={detalle.homepage} target='blank' className='text-lg hover:text-cyan-600'>HOMEPAGE</a>
+          <p className='mt-3'>Fecha de estreno:   { detalle.release_date}</p>
+         </div>
 
+     </div>
     </div> 
-
-    
-    
     
     
     </>
+  
+  
   )
 }
 

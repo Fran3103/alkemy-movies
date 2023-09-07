@@ -1,11 +1,11 @@
 body {
   background-color: rgb(2 6 23); 
   color:white; 
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:font-serif;
 }
 
 @tailwind base;

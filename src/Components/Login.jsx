@@ -42,7 +42,7 @@ const Login = () => {
           
             const  token = resp.data.token
             localStorage.setItem('token', token)   
-            history('/lista')
+            history('/peliculas')
         })
         
 
@@ -54,19 +54,19 @@ const Login = () => {
 
 
   return (
-    <div className=' max-w-full  flex justify-center items-center flex-col'>
+    <div className=' w-96 m-auto rounded-md mt-24 shadow-gray-300 shadow-sm flex justify-center items-center flex-col min-h-full p-16 pt-8 bg-slate-900 ' >
        
-        <h1>Bienvenido </h1>
-        <form onSubmit={Submit}>
-            <label ><p>Email</p>
-            <input type="text" name='email' placeholder='challenge@alkemy.org' />
+        <h1 className='text-5xl mt-6 mb-16'>Bienvenido </h1>
+        <form onSubmit={Submit} className='flex flex-col justify-center gap-6 mb-10'>
+            <label >
+            <input type="text" name='email' placeholder='challenge@alkemy.org' className='p-2 rounded-sm w-72 text-center ' />
             </label>
 
-            <label><p>Contraseña</p>
-            <input type="password" name='password' placeholder='react' />
+            <label>
+            <input type="password" name='password' placeholder='react' className='p-2 text-black text-center rounded-sm w-72' />
             </label> 
 
-            <button type='submit'>Ingresar</button>
+            <button type='submit' className=' rounded-lg bg-gray-200 p-3  text-red-800 text-xl hover:bg-slate-500  transition-all hover:shadow-neutral-900 hover:shadow-lg'>Ingresar</button>
         </form>
     </div>
   )
