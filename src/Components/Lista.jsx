@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
-const Lista = () => {
+const Lista = ({addOrRemove}) => {
 
     
    const history = useNavigate()
@@ -39,6 +39,7 @@ const Lista = () => {
     <>
     {!token  && history('/')}
         <div>
+          <h1>lista</h1>
 
           {
             movies.map((movie) => {
@@ -48,7 +49,7 @@ const Lista = () => {
                   <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                   <h3>{movie.title}</h3>
                   <p>{movie.overview}</p>
-
+                  <button onClick={addOrRemove} data-select-id={movie.id} >favorito</button>
               </div>)
             })
           }

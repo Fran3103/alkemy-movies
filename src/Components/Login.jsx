@@ -56,11 +56,11 @@ const Login = () => {
         <h1>Bienvenido </h1>
         <form onSubmit={Submit}>
             <label ><p>Email</p>
-            <input type="text" name='email' placeholder='Email' />
+            <input type="text" name='email' placeholder='challenge@alkemy.org' />
             </label>
 
             <label><p>Contraseña</p>
-            <input type="password" name='password' placeholder='Contraseña' />
+            <input type="password" name='password' placeholder='react' />
             </label> 
 
             <button type='submit'>Ingresar</button>

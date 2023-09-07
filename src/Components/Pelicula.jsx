@@ -1,12 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Pelicula = () => {
 
+
+  const history = useNavigate()
+
+    let token = localStorage.getItem('token')
     const[movies, setMovies]= useState([])
     
     
-    const keyApiMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&page=1'
+    const keyApiMovies = `https://api.themoviedb.org/3/discover/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&page=1`
     
 
 
@@ -21,7 +26,7 @@ const Pelicula = () => {
         })
 
       
-    }, [])
+    }, [keyApiMovies])
     
     
     
@@ -31,7 +36,7 @@ const Pelicula = () => {
 
   return (
     <>
-
+         {!token  && history('/')}
         <div>
 
           {
@@ -42,6 +47,7 @@ const Pelicula = () => {
                   <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                   <h3>{movie.title}</h3>
                   <p>{movie.overview}</p>
+                  <button ><Link to={`/detalle?Movie_id=${movie.id}`}>detalle </Link></button>
 
               </div>)
             })

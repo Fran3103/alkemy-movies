@@ -1,0 +1,47 @@
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
+const Resultado = () => {
+    const history = useNavigate()
+
+    const [result, setResult] = useState([])
+
+    let query = new URLSearchParams(window.location.search)
+    let resultado = query.get('busqueda')
+    console.log(resultado)
+    const apiResultado = `https://api.themoviedb.org/3/search/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&query=${resultado}`
+
+    useEffect(() => {
+        axios.get(apiResultado)
+          .then(resp =>{
+              const detalle = resp.data.results
+              setResult(detalle)
+              console.log(detalle)
+          })
+      }, [apiResultado])
+
+
+    let token = localStorage.getItem('token')
+  return (
+    <> {!token  && history('/')}
+    <div><h2>Buscaste : {resultado} </h2>
+    
+        {result.map((movie) => {
+            return( 
+            <div key={movie.id}>
+                <h2>{movie.title}</h2>
+                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                <h4>{movie.overview}</h4>
+                <button ><Link to={`/detalle?Movie_id=${movie.id}`}>detalle </Link></button>
+
+            </div>)})
+        }
+    
+    
+    </div>
+    </>
+  )
+}
+
+export default Resultado
