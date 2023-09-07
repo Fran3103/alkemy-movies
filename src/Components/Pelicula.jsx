@@ -13,7 +13,7 @@ const Pelicula = () => {
     
     const keyApiMovies = `https://api.themoviedb.org/3/discover/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&page=1`
     
-
+  // solicito datos a la api para  mostrar las peliculas
 
     useEffect(() => {
       
@@ -38,8 +38,8 @@ const Pelicula = () => {
     <>
          {!token  && history('/')}
         <div>
-
           {
+        // genero el mapeo del estado
             movies.map((movie) => {
               return(
                 <div key={movie.id}>

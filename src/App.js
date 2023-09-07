@@ -20,12 +20,12 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-
+// Token para validar el protected
   const [token, setToken ]= useLocalStorage('token')
 
-  
+  // logica de seccion favoritos 
   const [favoritos, setFavoritos] = useState([])
-
+// agarra el array del localstorage para mostrarlo en la seccion 
   useEffect(() => {
       const favoritosArray = localStorage.getItem('secFavoritos')
       const arrayFav = JSON.parse(favoritosArray)
@@ -36,8 +36,7 @@ function App() {
 
 
 
-
-
+// funcion para añadir la seleccion al localstorage
 
   const addOrRemove = e => {
     const favoritos = localStorage.getItem('secFavoritos')
@@ -52,18 +51,21 @@ function App() {
     console.log(secFavs)
   
   
-   
+   // obtengo el boton 
     const btn = e.currentTarget
+    // obtengo el padre del boton y sus elementos
     const parent = btn.parentElement    
     const title = parent.querySelector('h3').innerText
     const overview = parent.querySelector('p').innerText
     const img = parent.querySelector('img').getAttribute('src')
   
+    // genero un objeto 
     const fav = {
       title, img, overview,
       id: btn.dataset['selectId']
     }
 
+    // busco ids iguales para agregar al array 
     let favArray = secFavs.find(movie =>{
       return movie.id === fav.id
     })
@@ -74,6 +76,8 @@ function App() {
       console.log('se agrego a favoritos')
     } 
     
+
+   // filtro para quitar del array 
     else{
       let moviesselect = secFavs.filter(movie =>{
         return movie.id !== fav.id
@@ -85,6 +89,7 @@ function App() {
    
   }
   return (
+    
     <div className="App">
         <Header/>
         <Routes>

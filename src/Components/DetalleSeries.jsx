@@ -5,13 +5,13 @@ const DetalleSeries = () => {
 
     const [detalle , setDetalle] = useState([])
 
-
+ // obtengo los datos enviado a la url 
     let query = new URLSearchParams(window.location.search)
     
     let seriesID = query.get('Serie_id')
     const DetalleSerie = `https://api.themoviedb.org/3/tv/${seriesID}?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES`
 
-
+// busco los datos en la api y los muestro en el return
     useEffect(() => {
         axios.get(DetalleSerie)
           .then(resp =>{

@@ -6,7 +6,7 @@ const Buscador = () => {
     const history = useNavigate()
 
 
-
+// obtengo los datos del evento en el buscador y valido el submit redireccionando hacia el componente resultado
     const buscar = (e) =>{
         e.preventDefault()
         

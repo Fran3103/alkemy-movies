@@ -11,7 +11,7 @@ const Login = () => {
 
     
 
-
+// funcion para validar el login
      const Submit = (e) =>{
 
      e.preventDefault()
@@ -35,6 +35,7 @@ const Login = () => {
         return
     }
 
+    // envio datos a la api y redirecciono al componente principal
     axios
         .post('http://challenge-react.alkemy.org', {email, password})
         .then(resp =>{

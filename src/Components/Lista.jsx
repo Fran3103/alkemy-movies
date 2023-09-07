@@ -8,6 +8,8 @@ const Lista = ({addOrRemove}) => {
     
    const history = useNavigate()
 
+   // obtengo el token desde el localstorage
+
     let token = localStorage.getItem('token')
     const[movies, setMovies]= useState([])
     
@@ -15,7 +17,7 @@ const Lista = ({addOrRemove}) => {
     const keyApiMovies = 'https://api.themoviedb.org/3/discover/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&page=1'
     
 
-
+  // solicito datos a la api para  mostrar las peliculas
     useEffect(() => {
       
      
@@ -41,6 +43,8 @@ const Lista = ({addOrRemove}) => {
         <div>
           <h1>lista</h1>
 
+{/* 
+          Mapeo el estado y muestro los datos de la api */}
           {
             movies.map((movie) => {
               return(

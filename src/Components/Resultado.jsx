@@ -7,11 +7,15 @@ const Resultado = () => {
 
     const [result, setResult] = useState([])
 
+ // obtengo los datos enviado a la url 
+
     let query = new URLSearchParams(window.location.search)
     let resultado = query.get('busqueda')
     console.log(resultado)
     const apiResultado = `https://api.themoviedb.org/3/search/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&query=${resultado}`
 
+
+    // busco los datos en la api
     useEffect(() => {
         axios.get(apiResultado)
           .then(resp =>{
@@ -27,7 +31,9 @@ const Resultado = () => {
     <> {!token  && history('/')}
     <div><h2>Buscaste : {resultado} </h2>
     
-        {result.map((movie) => {
+        {
+        // mapeo esos datos obtenidos
+        result.map((movie) => {
             return( 
             <div key={movie.id}>
                 <h2>{movie.title}</h2>

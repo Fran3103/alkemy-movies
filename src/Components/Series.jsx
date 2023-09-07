@@ -7,8 +7,12 @@ const Series = () => {
     const history = useNavigate()
 
     let token = localStorage.getItem('token')
+
+
     const[series, setSeries]= useState([])
     const keyApiSeries = 'https://api.themoviedb.org/3/discover/tv?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&page=1'
+
+// solicito datos a la api y los guardo en el estado
 
     useEffect(() => {
         axios.get(keyApiSeries)
@@ -22,6 +26,9 @@ const Series = () => {
     <div>
       {!token  && history('/')}
         {
+
+          // genero el mapeo del estado
+
             series.map((serie) => {
               return(
                 <div key={serie.id}>

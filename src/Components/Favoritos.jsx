@@ -7,14 +7,7 @@ const Favoritos = ({addOrRemove, favoritos}) => {
     const history = useNavigate()
 
     let token = localStorage.getItem('token')
-    // const [favoritos, setFavoritos] = useState([])
-
-    // useEffect(() => {
-    //     const favoritosArray = localStorage.getItem('secFavoritos')
-    //     const arrayFav = JSON.parse(favoritosArray)
-    //     setFavoritos(arrayFav)
-    // }, [])
-    
+   
 
   return (
     <> {!token  && history('/')}
@@ -22,8 +15,11 @@ const Favoritos = ({addOrRemove, favoritos}) => {
         favoritos && 
     <div>
         <h1>gola</h1>
+        {
         
-        {favoritos.map((fav) => {
+        
+        //mapeo los datos que vienen desde el localstorage en el estado favoritos
+        favoritos.map((fav) => {
             return(
                 <div key={fav.id}>
                     <h3>{fav.title}</h3>

@@ -14,6 +14,7 @@ const Detalle = () => {
 
   const [detalle , setDetalle] = useState([])
 
+  // obtengo los datos enviado a la url 
 
   let query = new URLSearchParams(window.location.search)
   let movieID = query.get('Movie_id')
@@ -23,7 +24,7 @@ const Detalle = () => {
   
     
     const DetalleApi = `https://api.themoviedb.org/3/movie/${movieID}?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES`
-    
+    // genero la nueva solicitud a la api con esos datos obtenidos
     useEffect(() => {
       axios.get(DetalleApi)
         .then(resp =>{
@@ -37,6 +38,7 @@ const Detalle = () => {
     <>
       {!token  && history('/')}
       <div>
+        {/* mapeo los datos */}
       <h1>{detalle.title }</h1>
       <img src={`https://image.tmdb.org/t/p/w500/${detalle.poster_path}`} alt={detalle.title} />
       <h4>{detalle.overview}</h4>
