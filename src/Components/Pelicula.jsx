@@ -1,13 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate} from 'react-router-dom'
 
 const Pelicula = () => {
 
 
-  const history = useNavigate()
-
+ 
     let token = localStorage.getItem('token')
+
+
+     
+
     const[movies, setMovies]= useState([])
     
     
@@ -33,10 +36,17 @@ const Pelicula = () => {
 
    
   
+    if(token===null){
+      return <Navigate to='/'/>
+    }
 
+      
+    
   return (
     <>
-         {!token  && history('/')}
+         
+          
+         
         <div>
           {
         // genero el mapeo del estado
@@ -45,7 +55,7 @@ const Pelicula = () => {
                 <div key={movie.id}>
 
                   <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-                  <h3>{movie.title}</h3>
+                  <h3 className='text-8xl'>{movie.title}</h3>
                   <p>{movie.overview}</p>
                   <button ><Link to={`/detalle?Movie_id=${movie.id}`}>detalle </Link></button>
 
@@ -54,10 +64,10 @@ const Pelicula = () => {
           }
             
         </div>
-       
+
     </>
   )
-}
 
+}
 
 export default Pelicula

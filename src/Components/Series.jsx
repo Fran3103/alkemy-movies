@@ -1,10 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 const Series = () => {
 
-    const history = useNavigate()
+   
 
     let token = localStorage.getItem('token')
 
@@ -22,16 +22,19 @@ const Series = () => {
         })
       }, [])
  
+      if(token===null){
+        return <Navigate to='/'/>
+      }
   return (
     <div>
-      {!token  && history('/')}
+     
         {
 
           // genero el mapeo del estado
 
             series.map((serie) => {
               return(
-                <div key={serie.id}>
+                <div key={serie.id} className='m-3'>
 
                   <img src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`} alt={serie.name} />
                   <h3>{serie.name}</h3>

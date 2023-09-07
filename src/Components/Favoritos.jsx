@@ -1,20 +1,26 @@
 // import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 const Favoritos = ({addOrRemove, favoritos}) => {
 
 
-    const history = useNavigate()
+    
 
     let token = localStorage.getItem('token')
    
 
+    if(token===null){
+        return <Navigate to='/'/>
+      }
+
+
   return (
-    <> {!token  && history('/')}
-    {
-        favoritos && 
+    <>
+    
+    
+        
     <div>
-        <h1>gola</h1>
+        <h1>Favoritos</h1>
         {
         
         
@@ -35,7 +41,7 @@ const Favoritos = ({addOrRemove, favoritos}) => {
         
         
         </div>
-        }
+        
     </>
   )
 }

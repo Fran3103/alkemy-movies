@@ -48,11 +48,13 @@ const Login = () => {
 
      }
 
+     
+     
 
 
 
   return (
-    <div>
+    <div className=' max-w-full  flex justify-center items-center flex-col'>
        
         <h1>Bienvenido </h1>
         <form onSubmit={Submit}>

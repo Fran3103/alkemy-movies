@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 
 const Lista = ({addOrRemove}) => {
 
     
-   const history = useNavigate()
+  
 
    // obtengo el token desde el localstorage
 
@@ -31,15 +31,15 @@ const Lista = ({addOrRemove}) => {
       
     }, [])
     
-    
-    
-
    
-  
+   
+    if(token===null){
+      return <Navigate to='/'/>
+    }
 
   return (
     <>
-    {!token  && history('/')}
+ 
         <div>
           <h1>lista</h1>
 

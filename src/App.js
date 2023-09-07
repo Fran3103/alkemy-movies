@@ -5,8 +5,8 @@ import Header from './Components/Header';
 import Lista from './Components/Lista';
 import Login from './Components/Login';
 import {Routes, Route} from 'react-router-dom'
-import Protected from './Components/Protected';
-import { useLocalStorage } from 'react-use';
+
+
 
 
 
@@ -21,7 +21,14 @@ import { useEffect, useState } from 'react';
 function App() {
 
 // Token para validar el protected
-  const [token, setToken ]= useLocalStorage('token')
+  const [token, setToken ]= useState('')
+
+  console.log(token)
+  useEffect(() => {
+    const tokenTrue = localStorage.getItem('token')
+  setToken(tokenTrue)
+  }, [])
+  
 
   // logica de seccion favoritos 
   const [favoritos, setFavoritos] = useState([])
@@ -48,7 +55,7 @@ function App() {
     } else{
       secFavs = JSON.parse(favoritos)
     }
-    console.log(secFavs)
+
   
   
    // obtengo el boton 
@@ -73,7 +80,7 @@ function App() {
       secFavs.push(fav)
       localStorage.setItem('secFavoritos', JSON.stringify(secFavs))
       setFavoritos(secFavs)
-      console.log('se agrego a favoritos')
+    
     } 
     
 
@@ -84,17 +91,21 @@ function App() {
       })
       localStorage.setItem('secFavoritos', JSON.stringify(moviesselect))
       setFavoritos(moviesselect)
-      console.log('se elimino de favoritos')}
+     }
 
    
   }
   return (
-    
-    <div className="App">
-        <Header/>
+
+    <div className=" max-w-screen-xl m-auto ">
+
+        
+          <Header/>
+
+   
         <Routes>
           <Route exact path='/' element={<Login/> }/>
-          <Route element={<Protected active={token} redirectPath='/'/>}>
+          
             <Route path='/lista' element={<Lista addOrRemove={addOrRemove}/>}/>
             <Route path='/peliculas' element={<Pelicula/>}/>
             <Route path='/series' element={<Series/>}/>
@@ -103,10 +114,11 @@ function App() {
             <Route path='/favoritos' element={<Favoritos favoritos={favoritos} addOrRemove={addOrRemove}/>}/>
             <Route path='/resultado' element={<Resultado/>}/>
 
-          </Route>
+         
         </Routes>
         <Footer/>
   
+    
     </div>
   );
 }

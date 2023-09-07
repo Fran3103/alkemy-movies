@@ -27,13 +27,13 @@ const Buscador = () => {
 
 
 
-    <div>
+    <div className=' w-96 text-white p-3 shadow-outline '>
         <form onSubmit={buscar} >
             <label >
 
-                <input type="text" name='busqueda' />
+                <input type="text" name='busqueda' className='hover:text-blue-300 rounded-sm shadow tracking-wider transition-all text-xl font-serif'/>
             </label>
-            <button type='submit'>Buscar</button>
+            <button className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif ml-5 ' type='submit'>Buscar</button>
         </form>
     </div>
   )

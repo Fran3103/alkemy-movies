@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate} from 'react-router-dom'
 
 
 
 
 const Detalle = () => {
 
-  const history = useNavigate()
+ 
 
   let token = localStorage.getItem('token')
 
@@ -20,7 +20,7 @@ const Detalle = () => {
   let movieID = query.get('Movie_id')
  
 
-  console.log(movieID)
+ 
   
     
     const DetalleApi = `https://api.themoviedb.org/3/movie/${movieID}?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES`
@@ -32,11 +32,13 @@ const Detalle = () => {
             setDetalle(detalle)
         })
     }, [DetalleApi])
-
+    if(token===null){
+      return <Navigate to='/'/>
+    }
   
   return (
     <>
-      {!token  && history('/')}
+      
       <div>
         {/* mapeo los datos */}
       <h1>{detalle.title }</h1>

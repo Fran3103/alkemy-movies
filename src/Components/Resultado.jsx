@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate} from 'react-router-dom'
 
 const Resultado = () => {
-    const history = useNavigate()
+
 
     const [result, setResult] = useState([])
 
@@ -11,7 +11,7 @@ const Resultado = () => {
 
     let query = new URLSearchParams(window.location.search)
     let resultado = query.get('busqueda')
-    console.log(resultado)
+  
     const apiResultado = `https://api.themoviedb.org/3/search/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&query=${resultado}`
 
 
@@ -21,14 +21,19 @@ const Resultado = () => {
           .then(resp =>{
               const detalle = resp.data.results
               setResult(detalle)
-              console.log(detalle)
+              
           })
       }, [apiResultado])
 
 
     let token = localStorage.getItem('token')
+
+
+    if(token===null){
+      return <Navigate to='/'/>
+    }
   return (
-    <> {!token  && history('/')}
+    <> 
     <div><h2>Buscaste : {resultado} </h2>
     
         {
