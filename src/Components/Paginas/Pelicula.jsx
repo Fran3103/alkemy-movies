@@ -51,14 +51,17 @@ const Pelicula = () => {
          
           
          
-        <div className='  grid grid-cols-4 gap-5 mt-24  relative m-auto max-w-6xl'>
+        <div className=' 2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-2xl sm:max-w-lg grid md:grid-cols-4 grid-cols-3 gap-5 mt-24  relative m-auto bg-slate-100 p-4'>
           {
             // genero el mapeo del estado
             movies.map((movie) => {
               return(
                   <div key={movie.id}>
 
-                <div  className=' z-10 relative w-56 h-96 flex flex-col rounded-md mb-10 bg-cyan-950 hover:scale-105 duration-700  ease-in-out'>
+                <div  className='
+                 2xl:w-56 xl:w-48 lg:w-48 md:w-36  sm:w-32 
+                
+                z-10 relative  h-96 flex flex-col rounded-md mb-10 bg-cyan-950 hover:scale-105 duration-700  ease-in-out'>
                  <div className='w-full h-60 rouded-r-sm '>
                      <Link to={`/detalle?Movie_id=${movie.id}`}>
                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className='w-full h-full rounded-t-md ' alt={movie.title} />
