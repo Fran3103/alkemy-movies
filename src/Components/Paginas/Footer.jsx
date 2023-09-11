@@ -2,9 +2,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='mb-10'>
+    <footer className=''>
 
-        <nav className='max-w-full  flex justify-center items-center gap-12 mt-24 '>
+        <nav className='max-w-full absolut bottom-0 flex justify-center items-center gap-12 mt-20'>
             <ul>
                 <li>
                     <a href="/" rel='nooopenei noreferrer'>Github</a>

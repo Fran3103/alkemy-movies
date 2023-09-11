@@ -54,19 +54,19 @@ const Login = () => {
 
 
   return (
-    <div className=' w-96 m-auto rounded-md mt-24 shadow-gray-300 shadow-sm flex justify-center items-center flex-col min-h-full p-16 pt-8 bg-slate-900 ' >
+    <div className=' w-80 m-auto rounded-md mt-32 shadow-gray-300 shadow-sm flex justify-center items-center flex-col min-h-full  bg-slate-900 md:mt-16' >
        
-        <h1 className='text-5xl mt-6 mb-16'>Bienvenido </h1>
-        <form onSubmit={Submit} className='flex flex-col justify-center gap-6 mb-10'>
+        <h1 className='text-3xl mt-6 mb-8'>Bienvenido </h1>
+        <form onSubmit={Submit} className='flex flex-col justify-center items-center gap-6 mb-10'>
             <label >
-            <input type="text" name='email' placeholder='challenge@alkemy.org' className='p-2 rounded-sm w-72 text-center ' />
+            <input type="text" name='email' placeholder='challenge@alkemy.org' className='p-2 rounded-sm w-64  text-center ' />
             </label>
 
             <label>
-            <input type="password" name='password' placeholder='react' className='p-2 text-black text-center rounded-sm w-72' />
+            <input type="password" name='password' placeholder='react' className='p-2 text-black text-center rounded-sm w-64' />
             </label> 
 
-            <button type='submit' className=' rounded-lg bg-gray-200 p-3  text-red-800 text-xl hover:bg-slate-500  transition-all hover:shadow-neutral-900 hover:shadow-lg'>Ingresar</button>
+            <button type='submit' className=' rounded-lg bg-gray-200 p-2  text-red-800 text-lg hover:bg-slate-500  transition-all hover:shadow-neutral-900 hover:shadow-lg'>Ingresar</button>
         </form>
     </div>
   )

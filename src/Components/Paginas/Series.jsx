@@ -40,12 +40,15 @@ const Series = () => {
   return (
    <>
       <h2 className='text-5xl mt-12 text-center'>Series</h2>
-     <div className='  grid grid-cols-4 gap-5 mt-24   relative m-auto max-w-6xl'>
+     <div className=' 2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-3xl sm:max-w-2xl    mt-24  relative justify-center flex flex-wrap gap-3 md:gap-5 xl:gap-7 p-4 pt-8'>
      {
        // genero el mapeo del estado
        series.map((movie) => {
          return(
-           <div  key={movie.id} className=' relative w-56 h-96 flex flex-col rounded-md mb-10 bg-cyan-950 hover:scale-105 duration-700  ease-in-out'>
+           <div  key={movie.id}  className='
+           2xl:w-64 xl:w-56 lg:w-48 md:w-44  sm:w-40 w-36 h-84 
+           
+           relative   flex flex-col rounded-md mb-10 bg-cyan-950 hover:scale-105 duration-700  ease-in-out'>
             <Link  to={`/detalle?Movie_id=${movie.id}`}>
                 <div className='w-full h-60 rouded-r-sm'>
                   <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className='w-full h-full rounded-t-md ' alt={movie.title} />

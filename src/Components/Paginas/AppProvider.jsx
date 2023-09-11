@@ -99,7 +99,7 @@ export function AppProvider  ({children}) {
       const buscar = (e) =>{
         e.preventDefault()
         
-        const busqueda = e.target.busqueda.value
+        const busqueda = e.target.busqueda.value.trim()
 
         if(busqueda.length === 0 ){
             console.log('ingrese una palabra')
@@ -109,8 +109,13 @@ export function AppProvider  ({children}) {
             console.log('ingrese una palabra mayor a 3 caracteres')
             return
         }
-                e.target.busqueda.value=''
-             history(`/resultado?busqueda=${busqueda}`)
+
+        else{
+
+          e.target.busqueda.value=''
+          history(`/resultado?busqueda=${busqueda}`)
+          
+        }
     }
 
 

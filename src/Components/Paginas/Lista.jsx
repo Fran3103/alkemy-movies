@@ -45,6 +45,8 @@ const Lista = ({addOrRemove}) => {
 
 {/* 
           Mapeo el estado y muestro los datos de la api */}
+          <div className=' 2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-3xl sm:max-w-2xl    mt-24  relative justify-center flex flex-wrap gap-3 md:gap-5 xl:gap-7 p-4 pt-8'>
+
           {
             movies.map((movie) => {
               return(
@@ -58,6 +60,7 @@ const Lista = ({addOrRemove}) => {
             })
           }
             
+          </div>
         </div>
        
     </>

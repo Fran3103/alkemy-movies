@@ -9,7 +9,11 @@ module.exports = {
   theme: {
     extend: {
       height:{
-        '100':'34rem'
+        '100':'34rem',
+        'xs': '110%'
+      },
+      media:{
+        'xs': '424px'
       }
     },
   },

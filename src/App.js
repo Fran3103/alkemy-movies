@@ -10,7 +10,7 @@ function App() {
 
     <AppProvider>
 
-    <div className=" 2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-2xl sm:max-w-lg m-auto ">
+    <div className="  2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl m-auto w-screen">
         <Header/>
         <Routes>
           <Route exact path='/' element={<Login/> }/>
