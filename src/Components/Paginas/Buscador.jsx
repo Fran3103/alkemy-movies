@@ -20,7 +20,7 @@ const buscar = useBuscador()
         <form onSubmit={buscar} className=' flex items-center absolute right-6 top-0'  >
             <label >
 
-                <input type="text" name='busqueda' className={`hover:text-blue-700  rounded-sm bg-transparent mr-2 p-1 pl-2 pr-1 text-black tracking-wider transition-all w-5  xl:h-10  duration-500 font-serif  ${active && ' w-28 md:w-44  bg-white/50 '} `}/>
+                <input type="text" name='busqueda' className={`hover:text-blue-700  rounded-sm bg-transparent mr-2 p-1 pl-2 pr-1 text-black tracking-wider transition-all w-5  xl:h-10  duration-500 font-serif  ${active && ' md:w-44 w-32   bg-white/50 '} `}/>
                
             </label>
             <button type='submit ' className='absolute -right-5 md:-right-7 cursor-pointer'>

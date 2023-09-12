@@ -14,7 +14,7 @@ const Login = () => {
 // funcion para validar el login
      const Submit = (e) =>{
 
-     e.preventDefault()
+     
     const email = e.target.email.value
     const password = e.target.password.value
 
@@ -64,7 +64,7 @@ const Login = () => {
     <div className=' w-80 m-auto rounded-md mt-32 shadow-gray-300/10 shadow-lg flex justify-center items-center flex-col min-h-full  bg-slate-900 md:mt-16' >
        
         <h1 className='text-3xl mt-6 mb-8'>Bienvenido </h1>
-        <form onSubmit={Submit} className='flex flex-col justify-center items-center gap-6 mb-10'>
+        <form onSubmit={Submit} action='/pelicula' className='flex flex-col justify-center items-center gap-6 mb-10'>
             <label >
             <input type="text" name='email' placeholder='challenge@alkemy.org' className='p-2 rounded-sm w-64  text-center ' />
             <p className='text-red-700 mt-2 text-center '>{validacion}</p>

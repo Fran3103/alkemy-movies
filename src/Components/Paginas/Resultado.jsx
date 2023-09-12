@@ -64,12 +64,12 @@ const Resultado = () => {
     }
   return (
     <> 
-    <div><h2 className='text-5xl mt-12 text-left ml-12'>{busquedaTotal} Resultados  para  :   {resultado}</h2>
+    <div><h2 className='m-auto text-xl sm:text-3xl  md:text-5xl md:mt-12 mt-24  text-center '>{busquedaTotal} Resultados  para  :   {resultado}</h2>
     
         { 
           // mapeo esos datos obtenidos
           
-          <div className='   2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-3xl sm:max-w-2xl    mt-24  relative justify-center flex flex-wrap gap-3 md:gap-5 xl:gap-7 p-4 pt-8'>
+          <div className=' 2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-3xl sm:max-w-2xl    mt-4  relative justify-center flex flex-wrap gap-3 md:gap-5 xl:gap-7 p-4 pt-8'>
           {
             // genero el mapeo del estado
             result.map((movie) => {
