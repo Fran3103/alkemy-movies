@@ -35,10 +35,10 @@ const Resultado = () => {
     const[page, setPage]= useState(1)
     
     
+    const apiResultado = `https://api.themoviedb.org/3/search/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&query=${resultado}&page=${page}`
     
     // busco los datos en la api
     useEffect(() => {
-    let apiResultado = `https://api.themoviedb.org/3/search/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&query=${resultado}&page=${page}`
     axios.get(apiResultado)
     .then(resp =>{
               const detalle = resp.data.results
@@ -51,8 +51,8 @@ const Resultado = () => {
           }
               
           )
-          console.log(result)
-      },[resultado, page , result])
+         
+      },[apiResultado,result])
 
 
     let token = localStorage.getItem('token')
@@ -68,7 +68,7 @@ const Resultado = () => {
         { 
           // mapeo esos datos obtenidos
           
-          <div className='  grid grid-cols-4 gap-5 mt-24  cursor-pointer relative m-auto max-w-6xl'>
+          <div className='   2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-3xl sm:max-w-2xl    mt-24  relative justify-center flex flex-wrap gap-3 md:gap-5 xl:gap-7 p-4 pt-8'>
           {
             // genero el mapeo del estado
             result.map((movie) => {

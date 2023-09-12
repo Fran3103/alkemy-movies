@@ -1,13 +1,14 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect,  useState } from 'react'
 import { Link, Navigate} from 'react-router-dom'
 import { useAddorRemoveFav} from './AppProvider'
 
 const Pelicula = () => {
 
-
+   
  
     let token = localStorage.getItem('token')
+   
 
      const addOrRemove = useAddorRemoveFav()
     
@@ -35,7 +36,8 @@ const Pelicula = () => {
         setMovies(data)
         
       })
-      
+
+  
 
       
     }, [keyApiMovies])
@@ -79,7 +81,7 @@ const Pelicula = () => {
                   </div>
                   
 
-                  <button onClick={addOrRemove} data-select-id={movie.id} className={'absolute -top-8 z-0 w-8 h-16 rounded-t-md bg-black'}></button>
+                  <button  onClick={addOrRemove} data-select-id={movie.id} className={`absolute -top-8 z-0 w-8 h-16 rounded-t-md bg-gray-300`}></button>
                 </div>
               </div>
                   

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const favContext = React.createContext()
+const favColorContext = React.createContext()
 
 const addorRemoveFav = React.createContext()
 
@@ -17,6 +18,10 @@ export function useFavContext(){
     return useContext(favContext)
 }
 
+export function useFavColorContext(){
+  return useContext(favColorContext)
+}
+
 export function useAddorRemoveFav(){
     return useContext(addorRemoveFav)
 }
@@ -28,6 +33,7 @@ export function AppProvider  ({children}) {
 
 // logica de seccion favoritos 
       const [favoritos, setFavoritos] = useState([])
+     
      
     // veo si hay algo o no en el local y cambio el estado de favorito
       useEffect(() => {
@@ -59,10 +65,11 @@ export function AppProvider  ({children}) {
         const title = parent.querySelector('h3').innerText
         const overview = parent.querySelector('p').innerText
         const img = parent.querySelector('img').getAttribute('src')
-      
+        // const CamColor = parent.parentElement.querySelector('button')
+        const favColor = parent.parentElement.querySelector('button').classList
         // genero un objeto 
         const fav = {
-          title, img, overview,
+          title, img, overview,favColor,
           id: btn.dataset['selectId']
         }
     
@@ -74,7 +81,15 @@ export function AppProvider  ({children}) {
           secFavs.push(fav)
           localStorage.setItem('secFavoritos', JSON.stringify(secFavs))
           setFavoritos(secFavs)
-          alert('se agrego a favoritos')
+          
+          // console.log(favoritos)
+          // console.log(favColor)
+          // console.log(CamColor)
+          
+          // const red = CamColor.classList.remove('bg-gray-300')
+          // const red2 = CamColor.classList.add('bg-red-700')
+
+          // return red2
         } 
         
     
@@ -85,7 +100,12 @@ export function AppProvider  ({children}) {
           })
           localStorage.setItem('secFavoritos', JSON.stringify(moviesselect))
           setFavoritos(moviesselect)
-          alert('se elimino de favoritos')
+         
+          // const red = CamColor.classList.remove('bg-red-700')
+          // const red2 = CamColor.classList.add('bg-gray-300')
+
+          // return red2
+          // favColor.classList('bg-blue-600')
          }
     
        
@@ -121,11 +141,13 @@ export function AppProvider  ({children}) {
 
       return (
         <favContext.Provider value={favoritos}>
+         
             <addorRemoveFav.Provider value={addOrRemove}>
               <buscador.Provider value={buscar}>
                 {children}
               </buscador.Provider>
             </addorRemoveFav.Provider>
+          
         </favContext.Provider>
       )
 }

@@ -9,6 +9,9 @@ const Favoritos = () => {
     let token = localStorage.getItem('token')
     const addOrRemove = useAddorRemoveFav()
 
+
+   
+
     if(token===null){
         return <Navigate to='/'/>
       }
@@ -41,7 +44,7 @@ const Favoritos = () => {
                     <p >{movie.overview}</p>
 
                   </div>
-                  <button onClick={addOrRemove} data-select-id={movie.id} className={'absolute -top-8 z-0 w-8 h-16 rounded-t-md bg-black'}></button>
+                  <button onClick={addOrRemove} data-select-id={movie.id} className={`absolute -top-8 z-0 w-8 h-16 rounded-t-md ${favoritos.favColor}`}></button>
 
               </div>
               )

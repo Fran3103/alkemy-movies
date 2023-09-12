@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import {  useNavigate } from 'react-router-dom'
 
@@ -20,6 +20,7 @@ const Login = () => {
 
     if(email ==='' && password === ''){
         console.log('campos vacios')
+        setValidacion(error1)
         return
     }
 
@@ -27,11 +28,13 @@ const Login = () => {
 
     if(email === '' || !validEmail.test(email)){
         console.log('email invalido')
+        setValidacion(error2)
         return
     }
 
     if(email !=='challenge@alkemy.org' || password !=='react'){
         console.log('los datos son incorrectos')
+        setValidacion(error3)
         return
     }
 
@@ -48,22 +51,28 @@ const Login = () => {
 
      }
 
+     const [validacion , setValidacion ] = useState()
+
+     const error1 = 'Ingrese un email y contraseña'
+     
+     const error2= 'Ingrese un Email valido'
+     const error3 = 'Los datos ingresados son incorrectos'
      
      
-
-
 
   return (
-    <div className=' w-80 m-auto rounded-md mt-32 shadow-gray-300 shadow-sm flex justify-center items-center flex-col min-h-full  bg-slate-900 md:mt-16' >
+    <div className=' w-80 m-auto rounded-md mt-32 shadow-gray-300/10 shadow-lg flex justify-center items-center flex-col min-h-full  bg-slate-900 md:mt-16' >
        
         <h1 className='text-3xl mt-6 mb-8'>Bienvenido </h1>
         <form onSubmit={Submit} className='flex flex-col justify-center items-center gap-6 mb-10'>
             <label >
             <input type="text" name='email' placeholder='challenge@alkemy.org' className='p-2 rounded-sm w-64  text-center ' />
+            <p className='text-red-700 mt-2 text-center '>{validacion}</p>
             </label>
 
             <label>
             <input type="password" name='password' placeholder='react' className='p-2 text-black text-center rounded-sm w-64' />
+            <p className='text-red-700 mt-2 text-center '>{validacion}</p>
             </label> 
 
             <button type='submit' className=' rounded-lg bg-gray-200 p-2  text-red-800 text-lg hover:bg-slate-500  transition-all hover:shadow-neutral-900 hover:shadow-lg'>Ingresar</button>

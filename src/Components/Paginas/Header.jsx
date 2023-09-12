@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <>
-    <header className='hidden md:flex max-w-full justify-between items-center mt-4 p-7 m-auto  '> 
+    <header className='hidden md:flex max-w-full justify-between items-center mt-4 p-7 '> 
         <nav className='flex-row md:max-w-full text-zinc-50 gap-4 lg:gap-7  hidden md:flex' >
             <ul>
                 <li className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif lg:text-2xl'>
@@ -45,7 +45,7 @@ const Header = () => {
            
         <Buscador/>
     </header> 
-    <div className=" fixed z-10 top-0 left-0 bg-blue-300  justify-between items-center  w-screen md:hidden flex ">
+    <div className=" fixed z-10 top-0 left-0 bg-blue-300  justify-between items-center  w-screen md:hidden flex  ">
        <div className='flex  justify-between w-4/5 m-auto'>
             <button className='text-3xl ml-3 p-3 hover:text-gray-800' onClick={cambiarDisplay}>{ IoIosMenu()}</button>
                 <div onClick={cambiarDisplay} className={`${!display && 'hidden'} bg-gray-100/30 duration-700 md:hidden min-h-screen w-full fixed top-0 left-0 right-0 backdrop-blur-sm`}>
