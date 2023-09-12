@@ -37,33 +37,38 @@ const Login = () => {
         setValidacion(error3)
         return
     }
-
+    else{
+        const  token = [{email: email.value, password: password.value}]
+        localStorage.setItem('token', token)   
+               history('/peliculas')
+    }
     // envio datos a la api y redirecciono al componente principal
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZTI1NDQ0MzMxNGFmM2UwNmUyN2RjYTVhMzUxODEyZSIsInN1YiI6IjY0Zjc1OTRjYThiMmNhMDExYjg5MGIyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W3fDDKt9yNCOq94K6WtnHdoo6s0A-2aWB7UqJKF54k4'
-        },
-        email: email,
-        password: password
-      };
+    // const options = {
+    //     method: 'GET',
+    //     headers: {
+    //       accept: 'application/json',
+    //       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZTI1NDQ0MzMxNGFmM2UwNmUyN2RjYTVhMzUxODEyZSIsInN1YiI6IjY0Zjc1OTRjYThiMmNhMDExYjg5MGIyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W3fDDKt9yNCOq94K6WtnHdoo6s0A-2aWB7UqJKF54k4'
+    //     },
+    //     email: email,
+    //     password: password
+    //   };
       
-      fetch('https://api.themoviedb.org/3/authentication', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-    axios
-        .post('http://challenge-react.alkemy.org', {email, password})
-        .then(resp =>{
-          console.log(resp)
-            const  token = resp.data.token
-            localStorage.setItem('token', token)   
-            history('/peliculas')
-        })
+    //   fetch('https://api.themoviedb.org/3/authentication', options)
+    //     .then(response => response.json())
+    //     .then(response => console.log(response))
+    //     .catch(err => console.error(err));
+    // axios
+    //     .post('http://challenge-react.alkemy.org', {email, password})
+    //     .then(resp =>{
+    //       console.log(resp)
+    //         const  token = resp.data.token
+    //         localStorage.setItem('token', token)   
+    //         history('/peliculas')
+    //     })
         
 
-     }
+    //  }
+    }
 
      const [validacion , setValidacion ] = useState()
 
