@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import {  useNavigate } from 'react-router-dom'
+// import axios from 'axios'
+// import {  useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
 
 
-   const history = useNavigate()
+//    const history = useNavigate()
 
 
     
@@ -39,14 +39,14 @@ const Login = () => {
     }
 
     // envio datos a la api y redirecciono al componente principal
-    axios
-        .post('http://challenge-react.alkemy.org', {email, password})
-        .then(resp =>{
+    // axios
+    //     .post('http://challenge-react.alkemy.org', {email, password})
+    //     .then(resp =>{
           
-            const  token = resp.data.token
-            localStorage.setItem('token', token)   
-            history('/peliculas')
-        })
+    //         const  token = resp.data.token
+    //         localStorage.setItem('token', token)   
+    //         history('/')
+    //     })
         
 
      }
