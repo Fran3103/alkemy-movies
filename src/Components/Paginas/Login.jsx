@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
-// import axios from 'axios'
-// import {  useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import {  useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
 
 
-//    const history = useNavigate()
+   const history = useNavigate()
 
 
     
 
 // funcion para validar el login
      const Submit = (e) =>{
-
+        e.preventDefault()
      
     const email = e.target.email.value
     const password = e.target.password.value
@@ -39,14 +39,26 @@ const Login = () => {
     }
 
     // envio datos a la api y redirecciono al componente principal
-    // axios
-    //     .post('http://challenge-react.alkemy.org', {email, password})
-    //     .then(resp =>{
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZTI1NDQ0MzMxNGFmM2UwNmUyN2RjYTVhMzUxODEyZSIsInN1YiI6IjY0Zjc1OTRjYThiMmNhMDExYjg5MGIyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W3fDDKt9yNCOq94K6WtnHdoo6s0A-2aWB7UqJKF54k4'
+        }
+      };
+      
+      fetch('https://api.themoviedb.org/3/authentication', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+    axios
+        .post('http://challenge-react.alkemy.org', {email, password})
+        .then(resp =>{
           
-    //         const  token = resp.data.token
-    //         localStorage.setItem('token', token)   
-    //         history('/')
-    //     })
+            const  token = resp.data.token
+            localStorage.setItem('token', token)   
+            history('/peliculas')
+        })
         
 
      }
@@ -66,7 +78,7 @@ const Login = () => {
         <h1 className='text-3xl mt-6 mb-8'>Bienvenido </h1>
         <form onSubmit={Submit} action='/pelicula' className='flex flex-col justify-center items-center gap-6 mb-10'>
             <label >
-            <input type="text" name='email' placeholder='challenge@alkemy.org' className='p-2 rounded-sm w-64  text-center ' />
+            <input type="text" name='email' placeholder='challenge@alkemy.org' className='p-2 rounded-sm w-64  text-center text-blue-800 ' />
             <p className='text-red-700 mt-2 text-center '>{validacion}</p>
             </label>
 

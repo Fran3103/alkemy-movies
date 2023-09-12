@@ -34,7 +34,7 @@ const Series = () => {
         .then(resp =>{
           const dataSeries = resp.data.results
           setSeries(dataSeries)
-          console.log(dataSeries)
+        
         })
         .catch(console.error)
       }, [keyApiSeries])
