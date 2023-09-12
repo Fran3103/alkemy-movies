@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate} from 'react-router-dom'
-
+import { useAddorRemoveFav } from './AppProvider'
+import { AiOutlineHeart} from "react-icons/ai";
 const Resultado = () => {
   
   
@@ -14,7 +15,7 @@ const Resultado = () => {
     let query = new URLSearchParams(window.location.search)
     let resultado = query.get('busqueda')
 
-    
+    const addOrRemove = useAddorRemoveFav()
     
     //contador de paginas
     const siguiente = () =>{
@@ -73,20 +74,24 @@ const Resultado = () => {
             // genero el mapeo del estado
             result.map((movie) => {
               return(
-                <Link key={movie.id} to={`/detalle?Movie_id=${movie.id}`}>
-                <div  className=' relative w-56 h-96 flex flex-col rounded-md mb-10 bg-cyan-950 hover:scale-105 duration-700  ease-in-out'>
+                <div key={movie.id} className=' relative w-56 h-96 flex flex-col rounded-md mb-10 bg-cyan-950 hover:scale-105 duration-700  ease-in-out'>
+                  <Link  to={`/detalle?Movie_id=${movie.id}`}>
                  <div className='w-full h-60 rouded-r-sm'>
                       <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className='w-full h-full rounded-t-md ' alt={movie.title} />
                  </div>
+                  </Link>
                   <h3 className='text-lg p-2 mb-0'>{movie.title}</h3>
                   <div className='p-3 pl-2 h-20 mb-2 overflow-hidden'>
                     <p >{movie.overview}</p>
 
                   </div>
-                  
+
+
+                  <button  id={movie.id} onClick={addOrRemove} data-select-id={movie.id} className={  
+                      
+                      'absolute top-2 text-2xl right-2 pl-1 pt-0 z-0 w-8 h-8 rounded-full m-auto'}>{ AiOutlineHeart()} </button>
 
               </div>
-          </Link>
               )
             })
           }

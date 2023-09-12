@@ -33,8 +33,7 @@ export function AppProvider  ({children}) {
 
 // logica de seccion favoritos 
       const [favoritos, setFavoritos] = useState([])
-     
-     
+      
     // veo si hay algo o no en el local y cambio el estado de favorito
       useEffect(() => {
         const favoritosArray = localStorage.getItem('secFavoritos')
@@ -58,6 +57,7 @@ export function AppProvider  ({children}) {
     
       
       
+      
        // obtengo el boton 
         const btn = e.currentTarget
         // obtengo el padre del boton y sus elementos
@@ -65,47 +65,48 @@ export function AppProvider  ({children}) {
         const title = parent.querySelector('h3').innerText
         const overview = parent.querySelector('p').innerText
         const img = parent.querySelector('img').getAttribute('src')
-        // const CamColor = parent.parentElement.querySelector('button')
-        const favColor = parent.parentElement.querySelector('button').classList
-        // genero un objeto 
+     
+      
+      
         const fav = {
-          title, img, overview,favColor,
+          title, img, overview,
           id: btn.dataset['selectId']
         }
     
         // busco ids iguales para agregar al array 
+        
         let favArray = secFavs.find(movie =>{
           return movie.id === fav.id
         })
         if (!favArray){
+
+          
           secFavs.push(fav)
           localStorage.setItem('secFavoritos', JSON.stringify(secFavs))
           setFavoritos(secFavs)
           
-          // console.log(favoritos)
-          // console.log(favColor)
-          // console.log(CamColor)
-          
-          // const red = CamColor.classList.remove('bg-gray-300')
-          // const red2 = CamColor.classList.add('bg-red-700')
-
-          // return red2
+          btn.classList.add('bg-red-600')
         } 
         
     
        // filtro para quitar del array 
         else{
+          const favColor = false
+          let fav = {
+            title, img, overview,favColor,
+            id: btn.dataset['selectId']
+            
+          }
+          secFavs.push(fav)
+          btn.classList.add('bg-gray-600')
           let moviesselect = secFavs.filter(movie =>{
-            return movie.id !== fav.id
+            return movie.id !== fav.id;
+            
           })
+         
           localStorage.setItem('secFavoritos', JSON.stringify(moviesselect))
           setFavoritos(moviesselect)
-         
-          // const red = CamColor.classList.remove('bg-red-700')
-          // const red2 = CamColor.classList.add('bg-gray-300')
-
-          // return red2
-          // favColor.classList('bg-blue-600')
+          
          }
     
        

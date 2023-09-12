@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate} from 'react-router-dom'
+import {  Navigate} from 'react-router-dom'
 
 
 
@@ -20,6 +20,7 @@ const Detalle = () => {
   let movieID = query.get('Movie_id')
  
   console.log(query)
+  console.log(movieID)
  
   
     
@@ -57,9 +58,7 @@ const Detalle = () => {
                 <p className='mt-3'>Fecha de estreno:   { detalle.release_date}</p>
               </div>
           </div>
-          <Link to='/peliculas' className='m-auto hover:text-gray-500 lg:absolute lg:bottom-0 lg:right-4'>
-                <button >Volver</button>
-          </Link>
+          
     </div> 
     
     

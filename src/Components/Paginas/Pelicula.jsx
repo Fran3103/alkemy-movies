@@ -2,11 +2,13 @@ import axios from 'axios'
 import React, { useEffect,  useState } from 'react'
 import { Link, Navigate} from 'react-router-dom'
 import { useAddorRemoveFav} from './AppProvider'
-
+import { AiOutlineHeart} from "react-icons/ai";
 const Pelicula = () => {
-
-   
+  
+  
  
+
+      
     let token = localStorage.getItem('token')
    
 
@@ -22,10 +24,14 @@ const Pelicula = () => {
       if(page > 1){
         
         setPage(page - 1)
+        addOrRemove()
       }
     }
     const keyApiMovies = `https://api.themoviedb.org/3/discover/movie?api_key=8e254443314af3e06e27dca5a351812e&language=es-ES&page=${page}`
     
+
+
+
     useEffect(() => {
       
       
@@ -42,12 +48,10 @@ const Pelicula = () => {
       
     }, [keyApiMovies])
     
-    if(token===null){
+    
+   if(token===null){
       return <Navigate to='/'/>
     }
-
-  
-    
   return (
     <>
          
@@ -80,11 +84,20 @@ const Pelicula = () => {
 
                   </div>
                   
+                  
+                   
+                    
+                          <button  id={movie.id} onClick={addOrRemove} data-select-id={movie.id} className={  
+                      
+                      'absolute top-2 text-2xl right-2 pl-1 pt-0 z-0 w-8 h-8 rounded-full m-auto'}>{ AiOutlineHeart()} </button>
 
-                  <button  onClick={addOrRemove} data-select-id={movie.id} className={`absolute -top-8 z-0 w-8 h-16 rounded-t-md bg-gray-300`}></button>
+                        
+                    
+                  
+              
                 </div>
               </div>
-                  
+                
               )
             })
           }

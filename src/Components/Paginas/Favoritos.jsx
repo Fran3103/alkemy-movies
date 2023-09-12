@@ -1,6 +1,9 @@
 // import React, { useEffect, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { useFavContext, useAddorRemoveFav} from './AppProvider'
+import {AiFillHeart } from 'react-icons/ai'
+
+
 const Favoritos = () => {
 
 
@@ -9,22 +12,26 @@ const Favoritos = () => {
     let token = localStorage.getItem('token')
     const addOrRemove = useAddorRemoveFav()
 
+  let SinFav = favoritos  
+
+   console.log(SinFav.length)
 
    
 
     if(token===null){
         return <Navigate to='/'/>
       }
-
-
-  return (
-    <>
+      return (
+        <>
+        
     
     
         
         <h2 className='text-5xl mt-24 md:mt-16 text-center'>Favoritos</h2>
-  
-        {favoritos && 
+        
+
+        <h2 className={`${SinFav.length ?'hidden': 'text-5xl mt-32 md:mt-28 text-center'}`}>Sin Favoritos Agregrados</h2>
+        
           <div className=' 2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-3xl sm:max-w-2xl    mt-16  relative justify-center flex flex-wrap gap-3 md:gap-5 xl:gap-7 p-4 pt-8'>
           { 
             // genero el mapeo del estado
@@ -44,7 +51,10 @@ const Favoritos = () => {
                     <p >{movie.overview}</p>
 
                   </div>
-                  <button onClick={addOrRemove} data-select-id={movie.id} className={`absolute -top-8 z-0 w-8 h-16 rounded-t-md ${favoritos.favColor}`}></button>
+                  
+                  <button  id={movie.id} onClick={addOrRemove} data-select-id={movie.id} className={  
+                      
+                      'absolute top-2 text-2xl right-2 pl-1 pt-0 z-0 w-8 h-8 rounded-full m-auto text-red-500'}>{ AiFillHeart()} </button>
 
               </div>
               )
@@ -52,7 +62,7 @@ const Favoritos = () => {
           }
              
            
-        </div>  } 
+        </div>  
     </>
   )
 }
