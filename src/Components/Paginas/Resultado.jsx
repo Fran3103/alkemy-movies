@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useAddorRemoveFav } from './AppProvider'
 import { AiOutlineHeart} from "react-icons/ai";
 const Resultado = () => {
@@ -56,12 +56,10 @@ const Resultado = () => {
       },[apiResultado,result])
 
 
-    let token = localStorage.getItem('token')
+  
 
 
-    if(token===null){
-      return <Navigate to='/'/>
-    }
+   
   return (
     <> 
     <div><h2 className='m-auto text-xl sm:text-3xl  md:text-5xl md:mt-12 mt-24  text-center '>{busquedaTotal} Resultados  para  :   {resultado}</h2>

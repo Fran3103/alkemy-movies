@@ -18,7 +18,7 @@ const Header = () => {
         <nav className='flex-row md:max-w-full text-zinc-50 gap-4 lg:gap-7  hidden md:flex' >
             <ul>
                 <li className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif lg:text-2xl'>
-                    <Link to='/'> Inicio  </Link>
+                    <Link to='/peliculas'> Inicio  </Link>
                 </li>
             </ul>
          
@@ -59,7 +59,7 @@ const Header = () => {
             <div className={`${!display && 'hidden'} pl-12 mt-32 flex flex-col gap-12`}>
                 <ul>
                     <li className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif'>
-                        <Link to='/' onClick={cambiarDisplay}> Inicio  </Link>
+                        <Link to='/peliculas' onClick={cambiarDisplay}> Inicio  </Link>
                     </li>
                 </ul>
 
