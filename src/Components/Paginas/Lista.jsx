@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Navigate } from 'react-router-dom'
 
 
 const Lista = ({addOrRemove}) => {
@@ -10,7 +9,7 @@ const Lista = ({addOrRemove}) => {
 
    // obtengo el token desde el localstorage
 
-    let token = localStorage.getItem('token')
+
     const[movies, setMovies]= useState([])
     
     
@@ -33,9 +32,7 @@ const Lista = ({addOrRemove}) => {
     
    
    
-    if(token===null){
-      return <Navigate to='/'/>
-    }
+   
 
   return (
     <>

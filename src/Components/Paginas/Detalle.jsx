@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import {  Navigate} from 'react-router-dom'
+
 
 
 
@@ -9,7 +9,6 @@ const Detalle = () => {
 
  
 
-  let token = localStorage.getItem('token')
 
 
   const [detalle , setDetalle] = useState([])
@@ -33,9 +32,7 @@ const Detalle = () => {
             setDetalle(detalle)
         })
     }, [DetalleApi])
-    if(token===null){
-      return <Navigate to='/'/>
-    }
+  
   
   return (
     <>

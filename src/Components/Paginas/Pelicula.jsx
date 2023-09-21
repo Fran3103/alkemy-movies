@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect,  useState } from 'react'
-import { Link, Navigate} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useAddorRemoveFav} from './AppProvider'
 import { AiOutlineHeart} from "react-icons/ai";
 const Pelicula = () => {
@@ -9,7 +9,7 @@ const Pelicula = () => {
  
 
       
-    let token = localStorage.getItem('token')
+
    
 
      const addOrRemove = useAddorRemoveFav()
@@ -48,10 +48,7 @@ const Pelicula = () => {
       
     }, [keyApiMovies])
     
-    
-   if(token===null){
-      return <Navigate to='/'/>
-    }
+ 
   return (
     <>
          

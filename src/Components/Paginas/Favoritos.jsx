@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useFavContext, useAddorRemoveFav} from './AppProvider'
 import {AiFillHeart } from 'react-icons/ai'
 
@@ -9,7 +9,7 @@ const Favoritos = () => {
 
   const favoritos = useFavContext()  
 
-    let token = localStorage.getItem('token')
+
     const addOrRemove = useAddorRemoveFav()
 
   let SinFav = favoritos  
@@ -17,9 +17,7 @@ const Favoritos = () => {
  
    
 
-    if(token===null){
-        return <Navigate to='/'/>
-      }
+ 
       return (
         <>
         
