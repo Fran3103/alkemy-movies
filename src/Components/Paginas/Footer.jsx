@@ -12,7 +12,7 @@ const Footer = () => {
             </ul>
             <ul>
                 <li>
-                    <a href="https://www.linkedin.com/in/franco-aguirre-24855012a"  target='_blank' rel='nooopenei noreferrer'>Linkednd</a>
+                    <a href="https://www.linkedin.com/in/franco-aguirre-24855012a"  target='_blank' rel='nooopenei noreferrer'>Linkedin</a>
                 </li>
             </ul>
             

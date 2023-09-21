@@ -15,14 +15,13 @@ const[hayFa, setHayFa]= useState(false)
 
     const addOrRemove = useAddorRemoveFav()
 
-const valido = favoritos
 
 
 useEffect(()=>{
-  if(valido.length=== 0){
+  if(favoritos.length > 0){
     setHayFa(true)
   }
-},[valido])
+},[hayFa,favoritos])
  
 
 
@@ -40,7 +39,7 @@ useEffect(()=>{
 
       
 
-        <h2 className={hayFa ?   'text-5xl mt-32 md:mt-28 text-center' : 'hidden'}>Sin Favoritos Agregrados</h2>
+        <h2 className={hayFa ? 'hidden' : 'text-5xl mt-32 md:mt-28 text-center '  }>Sin Favoritos Agregrados</h2>
        
       
           <div className=' 2xl:max-w-6xl  xl:max-w-5xl lg:max-w-4xl md:max-w-3xl sm:max-w-2xl    mt-4  relative justify-center flex flex-wrap gap-3 md:gap-5 xl:gap-7 p-4 pt-8'>
