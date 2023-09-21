@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 
@@ -54,8 +55,10 @@ const Detalle = () => {
                 <a href={detalle.homepage} target='blank' className='text-lg hover:text-cyan-600'>HOMEPAGE</a>
                 <p className='mt-3'>Fecha de estreno:   { detalle.release_date}</p>
               </div>
+          <Link to='/' className='mt-32 hover:text-slate-400' > 
+                <p>Volver</p>
+          </Link>
           </div>
-          
     </div> 
     
     

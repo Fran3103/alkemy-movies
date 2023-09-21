@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const DetalleSeries = () => {
@@ -40,10 +41,12 @@ const DetalleSeries = () => {
         <span className='text-lg  mt-7'>Resumen: </span> 
         <h4 className='text-xl mt-3 mb-2 ml-0  sm:text-2xl '>  {detalle.overview}</h4>
         <h4 className='text-2xl mt-3 mb-9 ml-0 '> Episodios {detalle.number_of_episodes}</h4>
-    <div className='mt-24 '>
+    <div className='mt-24  flex flex-col'>
         <a href={detalle.homepage} target='blank' className='text-lg hover:text-cyan-600'>HOMEPAGE</a>
         <p className='mt-3'>Fecha de estreno:   { detalle.number_of_seasons}</p>
-        
+        <Link to='/series' className='mt-32 hover:text-slate-400' > 
+                <p>Volver</p>
+          </Link>
     </div>
 
     </div>
