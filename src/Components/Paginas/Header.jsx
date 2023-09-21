@@ -16,11 +16,6 @@ const Header = () => {
     <>
     <header className='hidden md:flex max-w-full justify-between items-center mt-4 p-7 '> 
         <nav className='flex-row md:max-w-full text-zinc-50 gap-4 lg:gap-7  hidden md:flex' >
-            <ul>
-                <li className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif lg:text-2xl'>
-                    <Link to='/peliculas'> Inicio  </Link>
-                </li>
-            </ul>
          
             <ul>
                 <li className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif lg:text-2xl '>
@@ -57,11 +52,7 @@ const Header = () => {
 
         <nav className={`${display ? 'w-72' : 'w-0' } bg-black min-h-screen fixed top-0 left-0  duration-700 `} >
             <div className={`${!display && 'hidden'} pl-12 mt-32 flex flex-col gap-12`}>
-                <ul>
-                    <li className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif'>
-                        <Link to='/peliculas' onClick={cambiarDisplay}> Inicio  </Link>
-                    </li>
-                </ul>
+               
 
                 <ul>
                     <li  className='hover:text-blue-300  tracking-wider transition-all text-xl font-serif'>
